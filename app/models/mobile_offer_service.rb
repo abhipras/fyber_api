@@ -78,13 +78,13 @@ class MobileOfferService
   ### the thumbail key should be a hash, if its a hash check if it has a key
   ### lowres
   def check_response_hash(body)
-    body.keys.include?('offers') &&
-      body[:offers].is_a?(Array) &&
-      (body[:offers].first.nil? ||
-          (body[:offers].first.keys.include?('title') &&
-          body[:offers].first.keys.include?('payout') &&
-          body[:offers].first.keys.include?('thumbnail') &&
-          body[:offers].first[:thumbnail].is_a?(Hash) &&
-          body[:offers].first[:thumbnail].keys.include?('lowres')))
+    body.keys.include?('offers') &&  ### Check if offers key exists
+      body[:offers].is_a?(Array) &&  ### Check if offers is an Array
+      (body[:offers].first.nil? || ### Check if first elem of offers is nil or
+          (body[:offers].first.keys.include?('title') && ### If the first elem exists check if first elem contains the key title
+          body[:offers].first.keys.include?('payout') && ### check if first elem contains the key payout
+          body[:offers].first.keys.include?('thumbnail') && ### check if first elem contains the key thumbnail
+          body[:offers].first[:thumbnail].is_a?(Hash) && ### check if value corresponding to the key thumbnail is a Hash
+          body[:offers].first[:thumbnail].keys.include?('lowres'))) ### check if value corresponding to the key thumbnail contains the key lowres
   end
 end
