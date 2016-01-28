@@ -34,3 +34,6 @@ calls the Fyber API server and returns the array of values to be displayed on th
 
 `MobileOffersController` is the only controller which displays a form by default which accepts
 parameters of `pub0`, `page` and `uid`, it renders a show page which has offers returned from the API server
+
+All constants are defined in the `app/models/mobile_offer_service.rb`
+
