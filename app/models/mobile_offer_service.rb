@@ -1,5 +1,5 @@
 require 'digest/sha1'
-
+require 'net/http'
 ### Service object which deals with the controller request and
 ### makes request to Fyber API to retrive mobile offers or
 ### exit gracefully
