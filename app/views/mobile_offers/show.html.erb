@@ -1,0 +1,33 @@
+<% if @code.to_i == 200 %>
+  
+  <% if @offers.length == 0 %>
+    <div class="alert alert-danger">No offers available</div>
+  <% else %>
+    <% @offers.each do |offer| %>
+
+      <div class="row">
+        <div class="col-xs-4 col-md-4 list-group">
+          <span class="list-group-item col-md-push-1"> <%= offer[:title] %> </span>
+          <span class="list-group-item col-md-push-1"> <%= offer[:payout] %> </span>
+          <img class="list-group-item col-md-push-1" src= <%= offer[:img] %>/>
+        </div>
+      </div>
+    
+    <% end %>
+  <% end %>
+
+<% else %>
+  <div class="alert alert-danger">Error occured during the API call</div>
+<% end %>
+<button type="submit" class="btn btn-primary form-group col-sm-7" id="refresh">Refresh</button>
+
+<script type="text/javascript">
+$(function() {
+
+  $('#refresh').on('click', function(){
+    window.location.href = window.location.href;
+  });
+
+});
+  
+</script>
